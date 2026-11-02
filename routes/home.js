@@ -1,11 +1,12 @@
-module.exports = function (router) {
+const express = require('express');
 
-    var homeRoute = router.route('/');
+const router = express.Router();
 
-    homeRoute.get(function (req, res) {
-        var connectionString = process.env.TOKEN;
-        res.json({ message: 'My connection string is ' + connectionString });
+router.get('/', function (_req, res) {
+    res.status(200).json({
+        message: 'Task management API is running',
+        data: {}
     });
+});
 
-    return router;
-}
+module.exports = router;
